@@ -1,0 +1,3921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User friendly Rasterio plugin to read raster datasets.">
+      
+      
+      
+        <link rel="canonical" href="https://cogeotiff.github.io/rio-tiler/api/rio_tiler/models/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>rio_tiler.models - rio-tiler</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CFira+Code&display=fallback">
+        <style>:root{--md-text-font:"Nunito Sans";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-rio_tilermodels" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="rio-tiler" class="md-header__button md-logo" aria-label="rio-tiler" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rio-tiler
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              rio_tiler.models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cogeotiff/rio-tiler/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cogeotiff/rio-tiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="rio-tiler" class="md-nav__button md-logo" aria-label="rio-tiler" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    rio-tiler
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cogeotiff/rio-tiler/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cogeotiff/rio-tiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../readers/" class="md-nav__link">
+        Readers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../models/" class="md-nav__link">
+        Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mosaic/" class="md-nav__link">
+        Mosaic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../colormap/" class="md-nav__link">
+        Colormaps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supported_format/" class="md-nav__link">
+        Supported file formats
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Advanced Topics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced Topics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Topics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/custom_readers/" class="md-nav__link">
+        Base classes and custom readers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/feature/" class="md-nav__link">
+        Read Polygon-shaped regions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/zonal_stats/" class="md-nav__link">
+        Zonal statistics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/dynamic_tiler/" class="md-nav__link">
+        Create a Dynamic Tiler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/tms/" class="md-nav__link">
+        TileMatrixSet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/Using-rio-tiler/" class="md-nav__link">
+        Introduction to rio-tiler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/Using-rio-tiler-mosaic/" class="md-nav__link">
+        rio-tiler.mosaic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/Using-tms/" class="md-nav__link">
+        Introduction to TileMatrixSets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/Using-rio-tiler-STACReader/" class="md-nav__link">
+        Introduction to rio-tiler + STAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/Using-nonEarth-dataset/" class="md-nav__link">
+        Using Non Earth dataset
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colormap/" class="md-nav__link">
+        rio_tiler.colormap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constants/" class="md-nav__link">
+        rio_tiler.constants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errors/" class="md-nav__link">
+        rio_tiler.errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expression/" class="md-nav__link">
+        rio_tiler.expression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          rio_tiler.models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        rio_tiler.models
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to_coordsbbox" class="md-nav__link">
+    to_coordsbbox
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandstatistics" class="md-nav__link">
+    BandStatistics
+  </a>
+  
+    <nav class="md-nav" aria-label="BandStatistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_1" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_1" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_1" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_1" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_1" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_1" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_1" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_1" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_1" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_1" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_1" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_1" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_1" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_1" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_1" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagedata" class="md-nav__link">
+    ImageData
+  </a>
+  
+    <nav class="md-nav" aria-label="ImageData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_2" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_from_list" class="md-nav__link">
+    create_from_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as_masked" class="md-nav__link">
+    as_masked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_as_image" class="md-nav__link">
+    data_as_image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post_process" class="md-nav__link">
+    post_process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    render
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    Info
+  </a>
+  
+    <nav class="md-nav" aria-label="Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_2" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_2" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_3" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_2" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_2" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_2" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_2" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_2" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_2" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_2" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_2" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_2" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_2" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_2" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_2" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodatatypes" class="md-nav__link">
+    NodataTypes
+  </a>
+  
+    <nav class="md-nav" aria-label="NodataTypes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_3" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_3" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riotilerbasemodel" class="md-nav__link">
+    RioTilerBaseModel
+  </a>
+  
+    <nav class="md-nav" aria-label="RioTilerBaseModel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_4" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_1" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_4" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_4" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_3" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_3" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_3" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_3" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_3" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_3" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_3" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_3" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_3" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_4" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_3" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_3" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_3" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialinfo" class="md-nav__link">
+    SpatialInfo
+  </a>
+  
+    <nav class="md-nav" aria-label="SpatialInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_5" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_2" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_5" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_5" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_4" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_4" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_4" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_4" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_4" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_4" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_4" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_4" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_4" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_5" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_4" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_4" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_4" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6">
+          rio_tiler.io
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="rio_tiler.io" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          rio_tiler.io
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/base/" class="md-nav__link">
+        rio_tiler.io.base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/cogeo/" class="md-nav__link">
+        rio_tiler.io.cogeo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/stac/" class="md-nav__link">
+        rio_tiler.io.stac
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_7">
+          rio_tiler.mosaic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="rio_tiler.mosaic" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          rio_tiler.mosaic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mosaic/reader/" class="md-nav__link">
+        rio_tiler.mosaic.reader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7_2" type="checkbox" id="__nav_5_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_7_2">
+          rio_tiler.mosaic.methods
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="rio_tiler.mosaic.methods" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          rio_tiler.mosaic.methods
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mosaic/methods/base/" class="md-nav__link">
+        rio_tiler.mosaic.methods.base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mosaic/methods/defaults/" class="md-nav__link">
+        rio_tiler.mosaic.methods.defaults
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        rio_tiler.profiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reader/" class="md-nav__link">
+        rio_tiler.reader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks/" class="md-nav__link">
+        rio_tiler.tasks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        rio_tiler.utils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../v2_migration/" class="md-nav__link">
+        Migration from v1.0 to v2.0
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../v3_migration/" class="md-nav__link">
+        Migration from v2.0 to v3.0
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        Development - Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to_coordsbbox" class="md-nav__link">
+    to_coordsbbox
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandstatistics" class="md-nav__link">
+    BandStatistics
+  </a>
+  
+    <nav class="md-nav" aria-label="BandStatistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_1" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_1" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_1" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_1" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_1" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_1" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_1" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_1" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_1" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_1" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_1" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_1" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_1" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_1" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_1" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagedata" class="md-nav__link">
+    ImageData
+  </a>
+  
+    <nav class="md-nav" aria-label="ImageData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_2" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_from_list" class="md-nav__link">
+    create_from_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as_masked" class="md-nav__link">
+    as_masked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_as_image" class="md-nav__link">
+    data_as_image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post_process" class="md-nav__link">
+    post_process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    render
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    Info
+  </a>
+  
+    <nav class="md-nav" aria-label="Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_2" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_2" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_3" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_2" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_2" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_2" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_2" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_2" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_2" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_2" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_2" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_2" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_2" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_2" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_2" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodatatypes" class="md-nav__link">
+    NodataTypes
+  </a>
+  
+    <nav class="md-nav" aria-label="NodataTypes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_3" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_3" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riotilerbasemodel" class="md-nav__link">
+    RioTilerBaseModel
+  </a>
+  
+    <nav class="md-nav" aria-label="RioTilerBaseModel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_4" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_1" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_4" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_4" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_3" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_3" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_3" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_3" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_3" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_3" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_3" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_3" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_3" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_4" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_3" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_3" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_3" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialinfo" class="md-nav__link">
+    SpatialInfo
+  </a>
+  
+    <nav class="md-nav" aria-label="SpatialInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_5" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_2" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_5" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods_5" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construct_4" class="md-nav__link">
+    construct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from_orm_4" class="md-nav__link">
+    from_orm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_file_4" class="md-nav__link">
+    parse_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_obj_4" class="md-nav__link">
+    parse_obj
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_raw_4" class="md-nav__link">
+    parse_raw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_4" class="md-nav__link">
+    schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_json_4" class="md-nav__link">
+    schema_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_forward_refs_4" class="md-nav__link">
+    update_forward_refs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_4" class="md-nav__link">
+    validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_5" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_4" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict_4" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json_4" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+<a href="https://github.com/cogeotiff/rio-tiler/blob/master/docs/src/api/rio_tiler/models.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="module-rio_tilermodels">Module rio_tiler.models<a class="headerlink" href="#module-rio_tilermodels" title="Permanent link">&para;</a></h1>
+<p>rio-tiler models.</p>
+<p>None</p>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">dtype_ranges</span>
+</code></pre></div>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="to_coordsbbox">to_coordsbbox<a class="headerlink" href="#to_coordsbbox" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_coordsbbox</span><span class="p">(</span>
+    <span class="n">bbox</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">rasterio</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">BoundingBox</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span>
+</code></pre></div>
+<p>Convert bbox to CoordsBbox nameTuple.</p>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h3 id="bandstatistics">BandStatistics<a class="headerlink" href="#bandstatistics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BandStatistics</span><span class="p">(</span>
+    <span class="n">__pydantic_self__</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.RioTilerBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+</ul>
+<h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Config</span>
+</code></pre></div>
+<h4 id="static-methods">Static methods<a class="headerlink" href="#static-methods" title="Permanent link">&para;</a></h4>
+<h4 id="construct">construct<a class="headerlink" href="#construct" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span>
+    <span class="n">_fields_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;SetStr&#39;</span><span class="p">),</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Creates a new model setting <strong>dict</strong> and <strong>fields_set</strong> from trusted or pre-validated data.</p>
+<p>Default values are respected, but no other validation is performed.
+Behaves as if <code>Config.extra = 'allow'</code> was set since it adds all passed values</p>
+<h4 id="from_orm">from_orm<a class="headerlink" href="#from_orm" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_orm</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_file">parse_file<a class="headerlink" href="#parse_file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_obj">parse_obj<a class="headerlink" href="#parse_obj" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_obj</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_raw">parse_raw<a class="headerlink" href="#parse_raw" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="schema">schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<h4 id="schema_json">schema_json<a class="headerlink" href="#schema_json" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema_json</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<h4 id="update_forward_refs">update_forward_refs<a class="headerlink" href="#update_forward_refs" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update_forward_refs</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">localns</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Try to update ForwardRefs on fields based on this Model, globalns and localns.</p>
+<h4 id="validate">validate<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
+<h4 id="copy">copy<a class="headerlink" href="#copy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update</span><span class="p">:</span> <span class="s1">&#39;DictStrAny&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td>None</td>
+<td>fields to include in new model</td>
+<td>None</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>None</td>
+<td>fields to exclude from new model, as with values this takes precedence over include</td>
+<td>None</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>values to change/add in the new model. Note: the data is not validated before creating</td>
+<td></td>
+</tr>
+<tr>
+<td>the new model: you should trust this data</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>deep</td>
+<td>None</td>
+<td>set to <code>True</code> to make a deep copy of the model</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>new model instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dict">dict<a class="headerlink" href="#dict" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<h4 id="json">json<a class="headerlink" href="#json" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">models_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<p>Generate a JSON representation of the model, <code>include</code> and <code>exclude</code> arguments as per <code>dict()</code>.</p>
+<p><code>encoder</code> is an optional function to supply as <code>default</code> to json.dumps(), other arguments as per <code>json.dumps()</code>.</p>
+<h3 id="bounds">Bounds<a class="headerlink" href="#bounds" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Bounds</span><span class="p">(</span>
+    <span class="n">__pydantic_self__</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro_1">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.RioTilerBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+</ul>
+<h4 id="descendants">Descendants<a class="headerlink" href="#descendants" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.SpatialInfo</li>
+</ul>
+<h4 id="class-variables_1">Class variables<a class="headerlink" href="#class-variables_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Config</span>
+</code></pre></div>
+<h4 id="static-methods_1">Static methods<a class="headerlink" href="#static-methods_1" title="Permanent link">&para;</a></h4>
+<h4 id="construct_1">construct<a class="headerlink" href="#construct_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span>
+    <span class="n">_fields_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;SetStr&#39;</span><span class="p">),</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Creates a new model setting <strong>dict</strong> and <strong>fields_set</strong> from trusted or pre-validated data.</p>
+<p>Default values are respected, but no other validation is performed.
+Behaves as if <code>Config.extra = 'allow'</code> was set since it adds all passed values</p>
+<h4 id="from_orm_1">from_orm<a class="headerlink" href="#from_orm_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_orm</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_file_1">parse_file<a class="headerlink" href="#parse_file_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_obj_1">parse_obj<a class="headerlink" href="#parse_obj_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_obj</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_raw_1">parse_raw<a class="headerlink" href="#parse_raw_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="schema_1">schema<a class="headerlink" href="#schema_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<h4 id="schema_json_1">schema_json<a class="headerlink" href="#schema_json_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema_json</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<h4 id="update_forward_refs_1">update_forward_refs<a class="headerlink" href="#update_forward_refs_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update_forward_refs</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">localns</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Try to update ForwardRefs on fields based on this Model, globalns and localns.</p>
+<h4 id="validate_1">validate<a class="headerlink" href="#validate_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h4>
+<h4 id="copy_1">copy<a class="headerlink" href="#copy_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update</span><span class="p">:</span> <span class="s1">&#39;DictStrAny&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td>None</td>
+<td>fields to include in new model</td>
+<td>None</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>None</td>
+<td>fields to exclude from new model, as with values this takes precedence over include</td>
+<td>None</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>values to change/add in the new model. Note: the data is not validated before creating</td>
+<td></td>
+</tr>
+<tr>
+<td>the new model: you should trust this data</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>deep</td>
+<td>None</td>
+<td>set to <code>True</code> to make a deep copy of the model</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>new model instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dict_1">dict<a class="headerlink" href="#dict_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<h4 id="json_1">json<a class="headerlink" href="#json_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">models_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<p>Generate a JSON representation of the model, <code>include</code> and <code>exclude</code> arguments as per <code>dict()</code>.</p>
+<p><code>encoder</code> is an optional function to supply as <code>default</code> to json.dumps(), other arguments as per <code>json.dumps()</code>.</p>
+<h3 id="imagedata">ImageData<a class="headerlink" href="#imagedata" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ImageData</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">mask</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">NOTHING</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">crs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">rasterio</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">CRS</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="n">NOTHING</span><span class="p">,</span>
+    <span class="n">band_names</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="n">NOTHING</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>numpy.ndarray</td>
+<td>pixel values.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>mask</td>
+<td>numpy.ndarray</td>
+<td>rasterio mask values.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>list</td>
+<td>list of assets used to construct the data values.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>bounds</td>
+<td>BoundingBox</td>
+<td>bounding box of the data.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>crs</td>
+<td>rasterio.crs.CRS</td>
+<td>Coordinates Reference System of the bounds.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>dict</td>
+<td>Additional metadata. Defaults to <code>{}</code>.</td>
+<td><code>{}</code></td>
+</tr>
+<tr>
+<td>band_names</td>
+<td>list</td>
+<td>name of each band. Defaults to <code>["1", "2", "3"]</code> for 3 bands image.</td>
+<td><code>["1", "2", "3"]</code> for 3 bands image</td>
+</tr>
+</tbody>
+</table>
+<h4 id="static-methods_2">Static methods<a class="headerlink" href="#static-methods_2" title="Permanent link">&para;</a></h4>
+<h4 id="create_from_list">create_from_list<a class="headerlink" href="#create_from_list" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_from_list</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;ImageData&#39;</span><span class="p">)]</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Create ImageData from a sequence of ImageData objects.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>sequence</td>
+<td>sequence of ImageData.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h4 id="instance-variables">Instance variables<a class="headerlink" href="#instance-variables" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">count</span>
+</code></pre></div>
+<p>Number of band.</p>
+<div class="highlight"><pre><span></span><code><span class="n">height</span>
+</code></pre></div>
+<p>Height of the data array.</p>
+<div class="highlight"><pre><span></span><code><span class="n">transform</span>
+</code></pre></div>
+<p>Returns the affine transform.</p>
+<div class="highlight"><pre><span></span><code><span class="n">width</span>
+</code></pre></div>
+<p>Width of the data array.</p>
+<h4 id="methods_2">Methods<a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h4>
+<h4 id="as_masked">as_masked<a class="headerlink" href="#as_masked" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_masked</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">MaskedArray</span>
+</code></pre></div>
+<p>return a numpy masked array.</p>
+<h4 id="data_as_image">data_as_image<a class="headerlink" href="#data_as_image" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">data_as_image</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span>
+</code></pre></div>
+<p>Return the data array reshaped into an image processing/visualization software friendly order.</p>
+<p>(bands, rows, columns) -&gt; (rows, columns, bands).</p>
+<h4 id="post_process">post_process<a class="headerlink" href="#post_process" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">post_process</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">in_range</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">out_dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">number</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uint8&#39;</span><span class="p">,</span>
+    <span class="n">color_formula</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ImageData&#39;</span>
+</code></pre></div>
+<p>Post-process image data.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in_range</td>
+<td>tuple</td>
+<td>input min/max bounds value to rescale from.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>out_dtype</td>
+<td>str</td>
+<td>output datatype after rescaling. Defaults to <code>uint8</code>.</td>
+<td><code>uint8</code></td>
+</tr>
+<tr>
+<td>color_formula</td>
+<td>str</td>
+<td>rio-color formula (see: <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/mapbox/rio-color" title="GitHub Repository: mapbox/rio-color">mapbox/rio-color</a>).</td>
+<td>None</td>
+</tr>
+<tr>
+<td>kwargs</td>
+<td>optional</td>
+<td>keyword arguments to forward to <code>rio_tiler.utils.linear_rescale</code>.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ImageData</td>
+<td>new ImageData object with the updated data.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="render">render<a class="headerlink" href="#render" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">render</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">add_mask</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">img_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;PNG&#39;</span><span class="p">,</span>
+    <span class="n">colormap</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span>
+</code></pre></div>
+<p>Render data to image blob.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_mask</td>
+<td>bool</td>
+<td>add mask to output image. Defaults to <code>True</code>.</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td>img_format</td>
+<td>str</td>
+<td>output image format. Defaults to <code>PNG</code>.</td>
+<td><code>PNG</code></td>
+</tr>
+<tr>
+<td>colormap</td>
+<td>dict or sequence</td>
+<td>RGBA Color Table dictionary or sequence.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>kwargs</td>
+<td>optional</td>
+<td>keyword arguments to forward to <code>rio_tiler.utils.render</code>.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bytes</td>
+<td>image.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="info">Info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Info</span><span class="p">(</span>
+    <span class="n">__pydantic_self__</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro_2">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.SpatialInfo</li>
+<li>rio_tiler.models.Bounds</li>
+<li>rio_tiler.models.RioTilerBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+</ul>
+<h4 id="class-variables_2">Class variables<a class="headerlink" href="#class-variables_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Config</span>
+</code></pre></div>
+<h4 id="static-methods_3">Static methods<a class="headerlink" href="#static-methods_3" title="Permanent link">&para;</a></h4>
+<h4 id="construct_2">construct<a class="headerlink" href="#construct_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span>
+    <span class="n">_fields_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;SetStr&#39;</span><span class="p">),</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Creates a new model setting <strong>dict</strong> and <strong>fields_set</strong> from trusted or pre-validated data.</p>
+<p>Default values are respected, but no other validation is performed.
+Behaves as if <code>Config.extra = 'allow'</code> was set since it adds all passed values</p>
+<h4 id="from_orm_2">from_orm<a class="headerlink" href="#from_orm_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_orm</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_file_2">parse_file<a class="headerlink" href="#parse_file_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_obj_2">parse_obj<a class="headerlink" href="#parse_obj_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_obj</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_raw_2">parse_raw<a class="headerlink" href="#parse_raw_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="schema_2">schema<a class="headerlink" href="#schema_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<h4 id="schema_json_2">schema_json<a class="headerlink" href="#schema_json_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema_json</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<h4 id="update_forward_refs_2">update_forward_refs<a class="headerlink" href="#update_forward_refs_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update_forward_refs</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">localns</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Try to update ForwardRefs on fields based on this Model, globalns and localns.</p>
+<h4 id="validate_2">validate<a class="headerlink" href="#validate_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="methods_3">Methods<a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
+<h4 id="copy_2">copy<a class="headerlink" href="#copy_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update</span><span class="p">:</span> <span class="s1">&#39;DictStrAny&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td>None</td>
+<td>fields to include in new model</td>
+<td>None</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>None</td>
+<td>fields to exclude from new model, as with values this takes precedence over include</td>
+<td>None</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>values to change/add in the new model. Note: the data is not validated before creating</td>
+<td></td>
+</tr>
+<tr>
+<td>the new model: you should trust this data</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>deep</td>
+<td>None</td>
+<td>set to <code>True</code> to make a deep copy of the model</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>new model instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dict_2">dict<a class="headerlink" href="#dict_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<h4 id="json_2">json<a class="headerlink" href="#json_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">models_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<p>Generate a JSON representation of the model, <code>include</code> and <code>exclude</code> arguments as per <code>dict()</code>.</p>
+<p><code>encoder</code> is an optional function to supply as <code>default</code> to json.dumps(), other arguments as per <code>json.dumps()</code>.</p>
+<h3 id="nodatatypes">NodataTypes<a class="headerlink" href="#nodatatypes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NodataTypes</span><span class="p">(</span>
+    <span class="o">/</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro_3">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>builtins.str</li>
+<li>enum.Enum</li>
+</ul>
+<h4 id="class-variables_3">Class variables<a class="headerlink" href="#class-variables_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Alpha</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Empty</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Internal</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Mask</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Nodata</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">name</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">value</span>
+</code></pre></div>
+<h3 id="riotilerbasemodel">RioTilerBaseModel<a class="headerlink" href="#riotilerbasemodel" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">RioTilerBaseModel</span><span class="p">(</span>
+    <span class="n">__pydantic_self__</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro_4">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+</ul>
+<h4 id="descendants_1">Descendants<a class="headerlink" href="#descendants_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.Bounds</li>
+<li>rio_tiler.models.BandStatistics</li>
+</ul>
+<h4 id="class-variables_4">Class variables<a class="headerlink" href="#class-variables_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Config</span>
+</code></pre></div>
+<h4 id="static-methods_4">Static methods<a class="headerlink" href="#static-methods_4" title="Permanent link">&para;</a></h4>
+<h4 id="construct_3">construct<a class="headerlink" href="#construct_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span>
+    <span class="n">_fields_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;SetStr&#39;</span><span class="p">),</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Creates a new model setting <strong>dict</strong> and <strong>fields_set</strong> from trusted or pre-validated data.</p>
+<p>Default values are respected, but no other validation is performed.
+Behaves as if <code>Config.extra = 'allow'</code> was set since it adds all passed values</p>
+<h4 id="from_orm_3">from_orm<a class="headerlink" href="#from_orm_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_orm</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_file_3">parse_file<a class="headerlink" href="#parse_file_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_obj_3">parse_obj<a class="headerlink" href="#parse_obj_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_obj</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_raw_3">parse_raw<a class="headerlink" href="#parse_raw_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="schema_3">schema<a class="headerlink" href="#schema_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<h4 id="schema_json_3">schema_json<a class="headerlink" href="#schema_json_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema_json</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<h4 id="update_forward_refs_3">update_forward_refs<a class="headerlink" href="#update_forward_refs_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update_forward_refs</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">localns</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Try to update ForwardRefs on fields based on this Model, globalns and localns.</p>
+<h4 id="validate_3">validate<a class="headerlink" href="#validate_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="methods_4">Methods<a class="headerlink" href="#methods_4" title="Permanent link">&para;</a></h4>
+<h4 id="copy_3">copy<a class="headerlink" href="#copy_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update</span><span class="p">:</span> <span class="s1">&#39;DictStrAny&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td>None</td>
+<td>fields to include in new model</td>
+<td>None</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>None</td>
+<td>fields to exclude from new model, as with values this takes precedence over include</td>
+<td>None</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>values to change/add in the new model. Note: the data is not validated before creating</td>
+<td></td>
+</tr>
+<tr>
+<td>the new model: you should trust this data</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>deep</td>
+<td>None</td>
+<td>set to <code>True</code> to make a deep copy of the model</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>new model instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dict_3">dict<a class="headerlink" href="#dict_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<h4 id="json_3">json<a class="headerlink" href="#json_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">models_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<p>Generate a JSON representation of the model, <code>include</code> and <code>exclude</code> arguments as per <code>dict()</code>.</p>
+<p><code>encoder</code> is an optional function to supply as <code>default</code> to json.dumps(), other arguments as per <code>json.dumps()</code>.</p>
+<h3 id="spatialinfo">SpatialInfo<a class="headerlink" href="#spatialinfo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SpatialInfo</span><span class="p">(</span>
+    <span class="n">__pydantic_self__</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="ancestors-in-mro_5">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.Bounds</li>
+<li>rio_tiler.models.RioTilerBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+</ul>
+<h4 id="descendants_2">Descendants<a class="headerlink" href="#descendants_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rio_tiler.models.Info</li>
+</ul>
+<h4 id="class-variables_5">Class variables<a class="headerlink" href="#class-variables_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">Config</span>
+</code></pre></div>
+<h4 id="static-methods_5">Static methods<a class="headerlink" href="#static-methods_5" title="Permanent link">&para;</a></h4>
+<h4 id="construct_4">construct<a class="headerlink" href="#construct_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span>
+    <span class="n">_fields_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;SetStr&#39;</span><span class="p">),</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Creates a new model setting <strong>dict</strong> and <strong>fields_set</strong> from trusted or pre-validated data.</p>
+<p>Default values are respected, but no other validation is performed.
+Behaves as if <code>Config.extra = 'allow'</code> was set since it adds all passed values</p>
+<h4 id="from_orm_4">from_orm<a class="headerlink" href="#from_orm_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_orm</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_file_4">parse_file<a class="headerlink" href="#parse_file_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_obj_4">parse_obj<a class="headerlink" href="#parse_obj_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_obj</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="parse_raw_4">parse_raw<a class="headerlink" href="#parse_raw_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="n">proto</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">Protocol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_pickle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="schema_4">schema<a class="headerlink" href="#schema_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<h4 id="schema_json_4">schema_json<a class="headerlink" href="#schema_json_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">schema_json</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ref_template</span><span class="p">:</span> <span class="s1">&#39;unicode&#39;</span> <span class="o">=</span> <span class="s1">&#39;#/definitions/</span><span class="si">{model}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<h4 id="update_forward_refs_4">update_forward_refs<a class="headerlink" href="#update_forward_refs_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update_forward_refs</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">localns</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Try to update ForwardRefs on fields based on this Model, globalns and localns.</p>
+<h4 id="validate_4">validate<a class="headerlink" href="#validate_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<h4 id="methods_5">Methods<a class="headerlink" href="#methods_5" title="Permanent link">&para;</a></h4>
+<h4 id="copy_4">copy<a class="headerlink" href="#copy_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update</span><span class="p">:</span> <span class="s1">&#39;DictStrAny&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Model&#39;</span>
+</code></pre></div>
+<p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td>None</td>
+<td>fields to include in new model</td>
+<td>None</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>None</td>
+<td>fields to exclude from new model, as with values this takes precedence over include</td>
+<td>None</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>values to change/add in the new model. Note: the data is not validated before creating</td>
+<td></td>
+</tr>
+<tr>
+<td>the new model: you should trust this data</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>deep</td>
+<td>None</td>
+<td>set to <code>True</code> to make a deep copy of the model</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>new model instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dict_4">dict<a class="headerlink" href="#dict_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DictStrAny&#39;</span>
+</code></pre></div>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<h4 id="json_4">json<a class="headerlink" href="#json_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;AbstractSetIntStr&#39;</span><span class="p">),</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s1">&#39;MappingIntStrAny&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_unset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">models_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">dumps_kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;unicode&#39;</span>
+</code></pre></div>
+<p>Generate a JSON representation of the model, <code>include</code> and <code>exclude</code> arguments as per <code>dict()</code>.</p>
+<p><code>encoder</code> is an optional function to supply as <code>default</code> to json.dumps(), other arguments as per <code>json.dumps()</code>.</p>
+
+              
+
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../expression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: rio_tiler.expression" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              rio_tiler.expression
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../io/base/" class="md-footer__link md-footer__link--next" aria-label="Next: rio_tiler.io.base" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              rio_tiler.io.base
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/cogeotiff" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/cogeotiff" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.cogeo.org/" target="_blank" rel="noopener" title="www.cogeo.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>
