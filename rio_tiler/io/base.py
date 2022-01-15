@@ -117,9 +117,15 @@ class SpatialMixin:
         if not all(numpy.isfinite(tile_bounds)):
             return True
 
+        print("TOAST")
         print(assets)
         print(tile_bounds)
         print(self.bounds)
+
+        warnings.warn("TOAST")
+        warnings.warn(assets)
+        warnings.warn(tile_bounds)
+        warnings.warn(self.bounds)
         return (
             (tile_bounds[0] < self.bounds[2])
             and (tile_bounds[2] > self.bounds[0])
