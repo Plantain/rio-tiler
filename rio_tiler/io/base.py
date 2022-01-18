@@ -94,6 +94,8 @@ class SpatialMixin:
         tile_bounds = self.tms.xy_bounds(Tile(x=tile_x, y=tile_y, z=tile_z))
 
         print("input: ", self.input)
+        print("crs: ", self.crs)
+        print("tmscrs: ", self.tms.rasterio_crs)
         print("3857 tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
         if not self.tms.rasterio_crs == self.crs:
             # Transform the bounds to the dataset's CRS
