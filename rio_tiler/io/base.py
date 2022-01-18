@@ -118,12 +118,12 @@ class SpatialMixin:
             return True
 
         print("TOAST")
-        print(self.assets)
+        print(self.input)
         print(tile_bounds)
         print(self.bounds)
 
         warnings.warn("TOAST")
-        warnings.warn(self.assets)
+        warnings.warn(self.input)
         warnings.warn(tile_bounds)
         warnings.warn(self.bounds)
         return (
