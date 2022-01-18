@@ -111,7 +111,7 @@ class SpatialMixin:
                 if tile_bounds[0] =< 4452779.63 or tile_bounds[0] > 11131949.08:
                     return False
             if "rapid" in self.input:
-                if tile_bounds[0] =< -3339584.72 or tile_bounds[0] > 4452779.63 or tile_bounds[1] <= 556597.45:
+                if tile_bounds[0] =< -3339584.72 or tile_bounds[0] > 4452779.63 or tile_bounds[1] =< 556597.45:
                     return False
             else:
                 if tile_bounds[0] =< -3339584.72 or tile_bounds[0] > 4452779.63:
