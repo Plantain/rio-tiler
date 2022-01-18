@@ -119,12 +119,12 @@ class SpatialMixin:
 
         print("TOAST")
         print(self.input)
-        print(tile_bounds)
+        print(tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
         print(self.bounds)
 
         warnings.warn("TOAST")
         warnings.warn(self.input)
-        warnings.warn(tile_bounds)
+        warnings.warn(tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
         warnings.warn(self.bounds)
         return (
             (tile_bounds[0] < self.bounds[2])
