@@ -103,22 +103,22 @@ class SpatialMixin:
                 return False
 
         if "goes16" in self.input:
-            if tile_bounds[0] =< -11131949.08 or tile_bounds[0] > -3339584.72:
+            if tile_bounds[0] <= -11131949.08 or tile_bounds[0] > -3339584.72:
                 return False
 
         if "eumetsat" in self.input:
             if "iodc" in self.input:
-                if tile_bounds[0] =< 4452779.63 or tile_bounds[0] > 11131949.08:
+                if tile_bounds[0] <= 4452779.63 or tile_bounds[0] > 11131949.08:
                     return False
             if "rapid" in self.input:
-                if tile_bounds[0] =< -3339584.72 or tile_bounds[0] > 4452779.63 or tile_bounds[1] =< 556597.45:
+                if tile_bounds[0] <= -3339584.72 or tile_bounds[0] > 4452779.63 or tile_bounds[1] <= 556597.45:
                     return False
             else:
-                if tile_bounds[0] =< -3339584.72 or tile_bounds[0] > 4452779.63:
+                if tile_bounds[0] <= -3339584.72 or tile_bounds[0] > 4452779.63:
                     return False
 
         if "himawari" in self.input:
-            if tile_bounds[0] =< 5565974.54:
+            if tile_bounds[0] <= 5565974.54:
                 return False
 
         if not self.tms.rasterio_crs == self.crs:
