@@ -93,6 +93,8 @@ class SpatialMixin:
         # bounds in TileMatrixSet's CRS
         tile_bounds = self.tms.xy_bounds(Tile(x=tile_x, y=tile_y, z=tile_z))
 
+        print("input: ", self.input)
+        print("3857 tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
         if not self.tms.rasterio_crs == self.crs:
             # Transform the bounds to the dataset's CRS
             try:
@@ -117,18 +119,9 @@ class SpatialMixin:
         if not all(numpy.isfinite(tile_bounds)):
             return True
 
-        print("TOAST")
-        print("input: ", self.input)
         print("tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
         print("self bounds", self.bounds)
 
-        warnings.warn("TOASTW")
-        warnings.warn(self.input)
-        warnings.warn(tile_bounds[0])
-        warnings.warn(tile_bounds[1])
-        warnings.warn(tile_bounds[2])
-        warnings.warn(tile_bounds[3])
-        warnings.warn(self.bounds)
         return (
             (tile_bounds[0] < self.bounds[2])
             and (tile_bounds[2] > self.bounds[0])
