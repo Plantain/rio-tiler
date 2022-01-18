@@ -110,7 +110,7 @@ class SpatialMixin:
             if "iodc" in self.input:
                 if tile_bounds[0] <= 2226389.82 or tile_bounds[0] > 11131949.08:
                     return False
-            if "rapid" in self.input:
+            elif "rapid" in self.input:
                 if tile_bounds[2] <= -3673543.20 or tile_bounds[0] > 4452779.63 or tile_bounds[1] <= 556597.45:
                     return False
             else:
