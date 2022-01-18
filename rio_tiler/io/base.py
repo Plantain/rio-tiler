@@ -97,6 +97,23 @@ class SpatialMixin:
         print("crs: ", self.crs)
         print("tmscrs: ", self.tms.rasterio_crs)
         print("3857 tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
+
+        if "goes17" in self.input:
+            if tile_bounds[0] > -11131949.08:
+                return False
+
+        if "goes16" in self.input:
+            if tile_bounds[0] < -11131949.08 or tile_bounds[0] > -3339584.72:
+                return False
+
+        if "eumetsat" in self.input:
+            if tile_bounds[0] < -3339584.72 or tile_bounds[0] > 5565974.54:
+                return False
+
+        if "himawari" in self.input:
+            if tile_bounds[0] < 5565974.54:
+                return False
+
         if not self.tms.rasterio_crs == self.crs:
             # Transform the bounds to the dataset's CRS
             try:
