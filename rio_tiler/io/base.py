@@ -94,9 +94,9 @@ class SpatialMixin:
         tile_bounds = self.tms.xy_bounds(Tile(x=tile_x, y=tile_y, z=tile_z))
 
         print("input: ", self.input)
-        print("crs: ", self.crs)
-        print("tmscrs: ", self.tms.rasterio_crs)
-        print("3857 tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
+        #print("crs: ", self.crs)
+        #print("tmscrs: ", self.tms.rasterio_crs)
+        #print("3857 tile bounds: ", tile_bounds[0], tile_bounds[1], tile_bounds[2], tile_bounds[3])
 
         if "goes17" in self.input:
             if tile_bounds[0] > -11131949.08:
@@ -134,6 +134,7 @@ class SpatialMixin:
                 # HACK: gdal will first throw an error for invalid transformation
                 # but if retried it will then pass.
                 # Note: It might return `+/-inf` values
+                print("retry bounds!")
                 tile_bounds = transform_bounds(
                     self.tms.rasterio_crs,
                     self.crs,
